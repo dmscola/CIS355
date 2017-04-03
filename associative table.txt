@@ -1,0 +1,25 @@
+Team Member
+--------
+id
+member_name
+member_role
+member_email
+
+Event
+---------
+id
+event_name
+event_location
+time
+event_description
+
+Assignment
+-------
+id
+Team Member_id
+Event_id
+description
+priority
+
+
+
