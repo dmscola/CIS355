@@ -8,7 +8,7 @@
 	}
 	
 		if ( null==$id ) {
-		header("Location: index.php");
+		header("Location: login.php");
 	}
 	
 		if ( !empty($_POST)) {

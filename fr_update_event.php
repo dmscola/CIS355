@@ -1,3 +1,17 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"])){ // if "user" not set,
+	session_destroy();
+	header('Location: login.php');     // go to login page
+	exit;
+}
+
+include 'customers.php';
+
+	Customers::navbar();
+	
+	?>
+
 <?php 
 
 require 'database.php';
@@ -79,7 +93,7 @@ if ( !empty($_POST)) { // if $_POST filled then process the form
 		<div class="span10 offset1">
 		
 			<div class="row">
-				<h3>Update Shift Details</h3>
+				<h3>Update Event Details</h3>
 			</div>
 	
 			<form class="form-horizontal" action="fr_update_event.php?id=<?php echo $id?>" method="post">
@@ -115,7 +129,7 @@ if ( !empty($_POST)) { // if $_POST filled then process the form
 				</div>
 				
 				<div class="control-group <?php echo !empty($descriptionError)?'error':'';?>">
-					<label class="control-label">Description</label>
+					<label class="control-label">Event Description</label>
 					<div class="controls">
 						<input name="event_description" type="text" placeholder="Description" value="<?php echo !empty($description)?$description:'';?>">
 						<?php if (!empty($descriptionError)): ?>

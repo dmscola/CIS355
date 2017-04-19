@@ -19,5 +19,10 @@ include 'database.php';
 include 'customers.php';
 
 	
-	Database::displayListScreen()
+
+	Customers::displayListHeading();
+	Customers::displayTableContents();
+	customers::importBootstrap();
+	Customers::displayListFooting();
+	
 ?>

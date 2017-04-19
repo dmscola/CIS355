@@ -1,8 +1,6 @@
 <?php
 /* ---------------------------------------------------------------------------
- * filename    : login.php
- * author      : George Corser, gcorser@gmail.com
- * description : This program logs the user in by setting $_SESSION variables
+Dom's login page
  * ---------------------------------------------------------------------------
  */
 
@@ -30,7 +28,7 @@ if ( !empty($_POST)) { // if $_POST filled then process the form
 		$_SESSION['id'] = $data['id'];
 		$sessionid = $data['id'];
 		Database::disconnect();
-		header("Location: assignments_view_1.php?id=$sessionid ");
+		header("Location: assignments_view_1.php?");
 	}
 	else { // otherwise go to login error page
 		Database::disconnect();
@@ -56,7 +54,7 @@ if ( !empty($_POST)) { // if $_POST filled then process the form
 		<div class="span10 offset1">
 		
 			<div class="row">
-				<h3>Volunteer Login</h3>
+				<h3>Login</h3>
 			</div>
 	
 			<form class="form-horizontal" action="login.php" method="post">
@@ -78,7 +76,7 @@ if ( !empty($_POST)) { // if $_POST filled then process the form
 				<div class="form-actions">
 					<button type="submit" class="btn btn-success">Sign in</button>
 					&nbsp; &nbsp;
-					<a class="btn btn-primary" href="fr_per_create2.php">Join (New Volunteer)</a>
+					<a class="btn btn-primary" href="create.php">Join (New User)</a>
 				</div>
 				
 			</form>

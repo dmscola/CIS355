@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"])){ // if "user" not set,
+	session_destroy();
+	header('Location: login.php');     // go to login page
+	exit;
+}
+include 'customers.php';
+
+	Customers::navbar();
+	?>
+
 <?php 
 	require 'database.php';
 	$id = 0;
@@ -17,7 +29,7 @@
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
 		Database::disconnect();
-		header("Location: index.php");
+		header("Location: events.php");
 		
 	} 
 ?>
@@ -43,7 +55,7 @@
 					  <p class="alert alert-error">Are you sure to delete ?</p>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-danger">Yes</button>
-						  <a class="btn" href="index.php">No</a>
+						  <a class="btn" href="events.php">No</a>
 						</div>
 					</form>
 				</div>

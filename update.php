@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(!isset($_SESSION["id"])){ // if "user" not set,
+	session_destroy();
+	header('Location: login.php');     // go to login page
+	exit;
+}
+include 'customers.php';
+
+	Customers::navbar();
+	?>
+
 <?php 
 	
 	require 'database.php';

@@ -36,7 +36,8 @@ class Database
 	
 	public function displayTableContents()
 	{
-							   $pdo = Database::connect();
+						include 'database.php';
+					   $pdo = Database::connect();
 					   $sql = 'SELECT * FROM customers ORDER BY id DESC';
 	 				   foreach ($pdo->query($sql) as $row) {
 						   		echo '<tr>';
@@ -44,7 +45,7 @@ class Database
 							   	echo '<td>'. $row['email'] . '</td>';
 							   	echo '<td>'. $row['mobile'] . '</td>';
 							   	echo '<td width=250>';
-							   	echo '<a class="btn" href="read.php?id='.$row['id'].'">Read</a>';
+							   	echo '<a class="btn" href="read_customer.php?id='.$row['id'].'">Read</a>';
 							   	echo '&nbsp;';
 							   	echo '<a class="btn btn-success" href="update.php?id='.$row['id'].'">Update</a>';
 							   	echo '&nbsp;';
